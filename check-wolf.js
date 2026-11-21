@@ -150,7 +150,7 @@ async function connectUsingGitHubTokens(credentials) {
 
     service = new WOLF();
     service.config.framework.login.token = token;
-    service.config.framework.login.onlineState = OnlineState.INVISIBLE;
+    service.config.framework.login.onlineState = OnlineState.BUSY;
 
     if (appCheckToken) {
         service.config.framework.login.appCheckToken = appCheckToken;
@@ -376,7 +376,7 @@ async function initializeTasks() {
     console.log(`🆔 My ID: ${settings.myId}`);
 
     try {
-        await service.setOnlineState(OnlineState.INVISIBLE);
+        await service.setOnlineState(OnlineState.BUSY);
         console.log('👻 تم ضبط الحالة إلى Invisible');
     } catch (err) {
         console.log('⚠️ تعذر ضبط الحالة عبر API:', err?.message || err);
